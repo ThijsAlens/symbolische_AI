@@ -14,3 +14,5 @@ LIST_OF_USED_EDGES: list[model.Edge.Edge] = LIST_OF_EXISTING_EDGES
 
 COST: int = 0
 
+RUNNING: bool = True
+
