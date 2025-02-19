@@ -3,21 +3,29 @@ import globals
 import model.Edge
 import model.constants
 
-def find_node_in_edge_list(node_id: int, list_of_edges: list[model.Edge.Edge]) -> model.Edge.Edge:
+def find_node_in_edge_list(node_id: int, list_of_edges: list[model.Edge.Edge]) -> list[model.Edge.Edge]:
     for edge in list_of_edges:
-        if (edge.endpoint1 == node_id):
-            return edge
-        if (edge.endpoint2 == node_id):
-            return edge
-    return None
+        res: list[model.Edge.Edge] = []
+        if (edge.endpoint1 == node_id or edge.endpoint2 == node_id):
+            res.append(edge)
+    return res
 
-def find_path(node_id: int, list_of_used_edges: list[model.Edge.Edge]):
-    edge = find_node_in_edge_list(node_id, list_of_used_edges)
+def find_path(node_id: int, list_of_edges: list[model.Edge.Edge]):
+    edge_list = find_node_in_edge_list(node_id, list_of_edges)
 
-    if (edge):
-        # the node is connected to the network via 'edge'
-        return edge
+    if (edge_list):
+        # the node is connected to the network via an edge, take the lowest cost edge
+        min_cost = edge_list[0].cost
+        min_cost_edge = edge_list[0]
+        for edge in edge_list:
+            if (edge.cost < min_cost):
+                min_cost = edge.cost
+                min_cost_edge = edge
+        return min_cost_edge
+
     else:
+        # the node is not connected to the network, search further
+        
         
 
 def initial_solution():
