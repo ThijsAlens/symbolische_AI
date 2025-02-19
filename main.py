@@ -14,10 +14,7 @@ def solve_problem():
 
     #Find initial solution
     algorithm.initial_solution()
-
     #Optimize the solution
-
-
 
 if __name__ == "__main__":
     args = sys.argv[1:]
