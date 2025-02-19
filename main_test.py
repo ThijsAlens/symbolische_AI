@@ -3,6 +3,8 @@ import threading
 
 import load_lists
 import algorithm
+import globals
+import visualize_graph
 
 
 def save_data(input_file: str):
@@ -11,8 +13,8 @@ def save_data(input_file: str):
 def solve_problem():
 
     #visualize nodes and edges
-    list_of_nodes = LIST_OF_PROSPECT_NODES + LIST_OF_REGULAR_NODES
-    list_of_edges = LIST_OF_EXISTING_EDGES + LIST_OF_REGULAR_EDGES + LIST_OF_OFF_STREET_EDGES
+    list_of_nodes = globals.LIST_OF_PROSPECT_NODES + globals.LIST_OF_REGULAR_NODES
+    list_of_edges = globals.LIST_OF_EXISTING_EDGES + globals.LIST_OF_REGULAR_EDGES + globals.LIST_OF_OFF_STREET_EDGES
     
     visualize_graph.visualize_graph(list_of_nodes,list_of_edges)
 
