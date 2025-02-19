@@ -1,8 +1,10 @@
 import sys
 import threading
+import time
 
 import load_lists
 import algorithm
+import globals
 
 
 def save_data(input_file: str):
@@ -22,9 +24,14 @@ if __name__ == "__main__":
 
     save_data(args[0])
 
-    start = threading.Thread(target=solve_problem)
+    solve = threading.Thread(target=solve_problem)
 
-    start.start()
+    solve.start()
+
+    time.sleep(int(args[2]))
+    globals.RUNNING = False
+    solve.join()
+
 
     # <input_file> <solution_file> <time_limit> <random_seed>
     input_file = args[0]
