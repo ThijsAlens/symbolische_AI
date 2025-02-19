@@ -34,3 +34,5 @@ def load_lists(file_path: str):
                     globals.LIST_OF_OFF_STREET_EDGES.append(model.Edge.Edge.deserialize(edge))
                 case _:
                     raise ValueError("Invalid edge type")
+                
+    globals.LIST_OF_ALL_EDGES = globals.LIST_OF_EXISTING_EDGES + globals.LIST_OF_REGULAR_EDGES + globals.LIST_OF_OFF_STREET_EDGES
