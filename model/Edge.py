@@ -1,21 +1,11 @@
-class Edge ():
-    def __init__(self, id: int, endpoint1: int, endpoint2: int, cost: float, edge_type: int) -> None:
-        self.id = id
-        self.endpoint1 = endpoint1
-        self.endpoint2 = endpoint2
-        self.cost = cost
-        self.edge_type = edge_type
+class Edge:
+    def __init__(self, id: int, endpoint1: int, endpoint2: int, cost: float, existing: bool, offstreet: bool):
+        self.id: int = id
+        self.endpoint1: int = endpoint1
+        self.endpoint2: int = endpoint2
+        self.cost: float = cost
+        self.existing: bool = existing
+        self.offstreet: bool = offstreet
 
-    def serialize(self) -> dict:
-        return {
-            'id': self.id,
-            'endpoint1': self.endpoint1,
-            'endpoint2': self.endpoint2,
-            'cost': self.cost,
-            'edge_type': self.edge_type
-        }
-    
-    @classmethod
-    def deserialize(cls, data: dict):
-        edge: Edge = cls(data["id"], data["endpoint1"], data["endpoint2"], data["cost"], data["edge_type"])
-        return edge
+    def __repr__(self):
+        return f"Edge({self.id}, {self.endpoint1}, {self.endpoint2}, cost={self.cost}, existing={self.existing}, offstreet={self.offstreet})"

@@ -1,14 +1,14 @@
 import sys
 import threading
 
-import load_lists
-import algorithm
+import read_input_file
+import initial_solution
 import globals
 import visualize_graph
 
 
 def save_data(input_file: str):
-    load_lists.load_lists(input_file)
+    read_input_file.load_lists(input_file)
 
 def solve_problem():
 
