@@ -1,23 +1,17 @@
 import sys
 import threading
 
-import read_input_file
+import read_input_file_graph
 import initial_solution
 import globals
 import visualize_graph
 
-
 def save_data(input_file: str):
-    read_input_file.load_lists(input_file)
-
-def solve_problem():
-
-    #visualize nodes and edges
-    list_of_nodes = globals.LIST_OF_PROSPECT_NODES + globals.LIST_OF_REGULAR_NODES
-    list_of_edges = globals.LIST_OF_EXISTING_EDGES + globals.LIST_OF_REGULAR_EDGES + globals.LIST_OF_OFF_STREET_EDGES
-    
+    list_of_edges, list_of_nodes = read_input_file_graph.read_input_file(input_file)
     visualize_graph.visualize_graph(list_of_nodes,list_of_edges)
 
+def solve_problem():
+    return
 
 if __name__ == "__main__":
     args = sys.argv[1:]
